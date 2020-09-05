@@ -1,22 +1,13 @@
 
-bool myCmp(string s1, string s2)
+bool myCmp(string X, string Y)
 {
-    int l= min(s1.length(),s2.length());
-    for(int i=0;i<l;i++)
-        if(s1[i]>s2[i])
-            return true;
-        else if(s1[i]<s2[i])
-            return false;
-            
-    if(s1.length()>l)
-    {
-        return s1[l-1]<s1[l];
-    }
-    if(s2.length()>l)
-    {
-        return s2[l-1]<s2[l];
-    }
-    
+   string XY = X.append(Y); 
+  
+    // then append X at the end of Y 
+    string YX = Y.append(X); 
+  
+    // Now see which of the two formed numbers is greater 
+    return XY.compare(YX) > 0 ? 1: 0;  
 }
 
 string Solution::largestNumber(const vector<int> &A) {
@@ -28,11 +19,14 @@ string Solution::largestNumber(const vector<int> &A) {
 
      sort(s.begin(),s.end(),myCmp);
     
+    if(s[0]=="0")
+    return "0";
     string temp;
     
     for(auto i:s)
     temp+=i;
     
+
     return temp;
     
 }
