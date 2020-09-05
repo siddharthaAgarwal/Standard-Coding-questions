@@ -1,13 +1,7 @@
 
 bool myCmp(string X, string Y)
 {
-   string XY = X.append(Y); 
-  
-    // then append X at the end of Y 
-    string YX = Y.append(X); 
-  
-    // Now see which of the two formed numbers is greater 
-    return XY.compare(YX) > 0 ? 1: 0;  
+   return (X+Y)>(Y+X);
 }
 
 string Solution::largestNumber(const vector<int> &A) {
